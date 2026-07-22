@@ -13,24 +13,7 @@ By default, Ollama buries model weight blobs inside system directories (`/usr/sh
 
 ### Systemd Service Configuration
 
-To ensure the Ollama system daemon loads models directly from `~/ai-models`, a systemd override was created via `sudo systemctl edit ollama.service`:
-
-```ini
-[Service]
-Environment="OLLAMA_HOST=0.0.0.0:11434"
-Environment="OLLAMA_MODELS=/home/user/ai-models"
-
-```
-
-Permissions and ownership were aligned with the daemon user:
-
-```bash
-sudo chown -R ollama:ollama ~/ai-models
-chmod 755 /home/$USER
-sudo systemctl daemon-reload
-sudo systemctl restart ollama
-
-```
+To ensure the Ollama system daemon loads models directly from `~/ai-models`, a systemd override was created via `sudo systemctl edit ollama.service`. Ollama is also configured to activate on boot.
 
 ---
 
@@ -44,12 +27,15 @@ Two specialized agents were compiled into the local Ollama engine to address dis
 * **Focus:** Bash, Zsh, kernel configuration, system troubleshooting, terminal automation.
 * **Temperature:** `0.2` (Low creativity, high precision).
 
+He can help me with complex bash scripts and troubleshooting, even if I am offline.
+
 ### 2. General Executive Assistant (`Glitch Daily`)
 
 * **Base Architecture:** `llama3.2:3b`
 * **Focus:** Reasoning, document summarization, drafting, general query assistance.
 * **Temperature:** `0.7` (Balanced, natural conversational response).
 
+A good general chatbot, configured to have decent context window size for conversation.
 
 ## Open WebUI Setup & Network Integration
 
