@@ -7,7 +7,7 @@ A comprehensive guide and reference document detailing the deployment, configura
 **Ollama** - open-source local model manager that can serve AI access through multiple means (curl, CLI, API, etc).
 **Open WebUi** - serves as a frontend for the running model, similar to a Gemini or ChatGPT interface. Installed by Snap.
 
-## 📁 Custom Model Storage Architecture (`~/ai-models`)
+## Custom Model Storage Architecture (`~/ai-models`)
 
 By default, Ollama buries model weight blobs inside system directories (`/usr/share/ollama/.ollama/models`). I modified that to a dedicated user location: `~/ai-models`.
 
@@ -49,7 +49,7 @@ To provide a rich interface supporting document drag-and-drop (RAG), web search 
 
 ---
 
-## 🚀 Summary & Future Roadmap
+## Summary & Future Roadmap
 
 * **Complete Privacy:** Zero external API dependencies or logging.
 * **Storage Optimization:** Shared weight blobs managed through OCI-style manifest layers.
